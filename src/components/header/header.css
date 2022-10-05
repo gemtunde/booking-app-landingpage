@@ -7,13 +7,18 @@
     margin-left: -380px;
      padding: 20px;
      position: relative;
-     height: 300px;
+    
 };
+
 .headerContainer{
     width: 100%;
-    max-width: 1024px;
-   
-   
+    max-width: 1024px;  
+    margin: 20px 0px 100px 0px;
+         
+}
+.headerContainer.listMode{ 
+    margin: 20px 0px 0px 0px;
+         
 }
 .headerList{
     display: flex;
@@ -76,8 +81,10 @@
 .date{
     position: absolute;
     top: 50px;
+    z-index: 2;
 }
 .options{
+    z-index: 2;
     position: absolute;
     top: 50px;
     background-color: white;

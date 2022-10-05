@@ -7,7 +7,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { format } from 'date-fns';
 
-const Header = () => {
+const Header = ({type}) => {
     const [openDate, setOpenDate] = useState(false);
     const [openOptions, setOpenOptions] = useState(false);
     const [options, setOptions] = useState({
@@ -32,8 +32,8 @@ const Header = () => {
         })
     }
   return (
-    <div className="header">
-     <div className="headerContainer">        
+    <div className='header'>
+     <div className={type === 'list' ? 'headerContainer listMode' : 'headerContainer'}>        
         <div className="headerList">
             <div className="headerListItem active">
                 <FontAwesomeIcon icon={faBed} />
@@ -56,7 +56,9 @@ const Header = () => {
                 <span>Airport Taxis</span>
             </div>
         </div>
-          <h1 className="headerTitle"> A lifetime of discounts? Its a Genius.</h1>
+          {type !== 'list' && (
+            <>
+            <h1 className="headerTitle"> A lifetime of discounts? Its a Genius.</h1>
         <p className="headerDesc">
             Get reward for your travels - unlock instant savings of
             10% with free gemtunde-booking account
@@ -138,6 +140,7 @@ const Header = () => {
                 <button className="headerBtn">Search</button>          
             </div>
         </div>
+        </>)}
     </div>
     </div>
   )
